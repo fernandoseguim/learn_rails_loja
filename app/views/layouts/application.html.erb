@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LearnRailsLoja</title>
+    <title>Learn Rails - Loja</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,14 @@
   </head>
 
   <body>
+
+    <%= nav_bar brand: "Loja de Roupas" do %>
+      <%= menu_group do %>
+        <%= menu_item "Homepage", root_path %>
+        <%= menu_item "Produtos", todos_os_produtos_path %>
+      <% end %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
