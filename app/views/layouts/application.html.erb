@@ -13,10 +13,20 @@
     <%= nav_bar brand: "Loja de Roupas" do %>
       <%= menu_group do %>
         <%= menu_item "Homepage", root_path %>
-        <%= menu_item "Produtos", todos_os_produtos_path %>
+        <%= menu_item "Produtos", all_produtos_path %>
+      <% end %>
+      <!-- navbar-left search-form -->
+      <%= form_tag busca_produtos_path, method: :get, class: "navbar-form navbar-right" do %>
+
+        <%= text_field_tag :nome, @nome_a_buscar, placeholder: "Buscar produtos", class: "form-control" %>
+
+        <%= button_to "Buscar produtos", nil, class: "btn btn-primary" %>
       <% end %>
     <% end %>
+    <section class="container">
 
-    <%= yield %>
+      <%= yield %>
+
+    </section>
   </body>
 </html>

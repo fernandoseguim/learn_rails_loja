@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get "produtos" => "produtos#index"
-  get "todos" => "produtos#show_all", as: "todos_os_produtos"
+
+  resources :departamentos
+  resources :produtos, only: [:new, :create, :destroy, :edit, :update]
+
+  #custom routes
+  get "produtos/busca" => "produtos#search", as: "busca_produtos"
+  get "produtos" => "produtos#show_all", as: "all_produtos"
   root "produtos#index"
 end
